@@ -1,0 +1,25 @@
+# Define the name of the GitHub Actions workflow
+name: Post welcome comment
+
+# Specify the trigger for this workflow
+on:
+  # Trigger when a pull request is opened
+  pull_request:
+    # Define the types of pull request events that trigger this workflow
+    types: [opened]
+
+# Define the permissions required for this workflow
+permissions:
+  # Allow writing comments on pull requests
+  pull-requests: write
+jobs:
+  build:
+    name: Post welcome comment
+    runs-on: ubuntu-latest
+    steps:
+      - run: gh pr comment $PR_URL --body "Welcome to the repository!"
+        env:
+          GITHUB-TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PR_URL: ${{ github.event.pull_request.html_url }}
+
+    
