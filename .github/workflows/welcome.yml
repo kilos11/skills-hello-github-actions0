@@ -12,5 +12,9 @@ on:
 permissions:
   # Allow writing comments on pull requests
   pull-requests: write
+jobs:
+  build:
+    name: Post welcome comment
+    runs-on: ubuntu-latest
 
     
