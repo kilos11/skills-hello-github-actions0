@@ -1,0 +1,16 @@
+# Define the name of the GitHub Actions workflow
+name: Post welcome comment
+
+# Specify the trigger for this workflow
+on:
+  # Trigger when a pull request is opened
+  pull_request:
+    # Define the types of pull request events that trigger this workflow
+    types: [opened]
+
+# Define the permissions required for this workflow
+permissions:
+  # Allow writing comments on pull requests
+  pull-requests: write
+
+    
